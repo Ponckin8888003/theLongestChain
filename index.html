@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Найдовший ланцюжок фрагментів</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0 20px 80px;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            color: #1d1d1f;
+            background: linear-gradient(#f2f2f4 0%, #ffffff 520px);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 90px 0 50px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 9vw, 72px);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            font-weight: 700;
+            margin: 0 0 20px;
+        }
+
+        .lead {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #6e6e73;
+            max-width: 520px;
+            margin: 0 auto 32px;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 500;
+            color: #ffffff;
+            background: #1d1d1f;
+            border: none;
+            border-radius: 980px;
+            padding: 14px 30px;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        #status {
+            display: block;
+            height: 20px;
+            margin-top: 14px;
+            font-size: 14px;
+            color: #86868b;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 28px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #86868b;
+        }
+
+        .value {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #424245;
+            word-break: break-all;
+        }
+
+        .value:empty::before {
+            content: "—";
+            color: #c7c7cc;
+        }
+
+        .big {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            color: #1d1d1f;
+        }
+
+        @media (max-width: 520px) {
+            .hero {
+                padding-top: 60px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="hero">
+            <h1>Менше перебору.<br>Більше результату.</h1>
+            <p class="lead">Програма складає найдовший ланцюжок із 142 шестицифрових фрагментів і не перебирає зайвого.
+            </p>
+            <button id="start">Знайти ланцюжок</button>
+            <span id="status"></span>
+        </section>
+
+        <section class="card">
+            <h3>Кількість використаних фрагментів</h3>
+            <div class="value big" id="count"></div>
+        </section>
+
+        <section class="card">
+            <h3>Фрагменти по порядку</h3>
+            <div class="value" id="list"></div>
+        </section>
+
+        <section class="card">
+            <h3>Фінальний рядок</h3>
+            <div class="value" id="text"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
